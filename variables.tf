@@ -1,5 +1,5 @@
-variable "region" {
-  description = "The region to deploy resources to"
+variable "location" {
+  description = "The location to which to deploy resources"
   default     = "northeurope"
   type        = string
 }
