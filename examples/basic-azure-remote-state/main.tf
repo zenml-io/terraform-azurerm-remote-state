@@ -1,14 +1,14 @@
 provider "azurerm" {
-  region = var.region
+  features {}
 }
 
 module "azure-remote-state" {
   source = "../../"
 
-  region         = var.region
+  location       = var.location
   container_name = var.container_name
 }
 
-output "remote_state_bucket_url" {
-  value = module.azure-remote-state.bucket_url
+output "remote_state_container_http_url" {
+  value = module.azure-remote-state.remote_state_http_url
 }

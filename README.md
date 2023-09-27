@@ -1,16 +1,15 @@
 # Azure Remote State Container module
 
-Terraform module which creates remote state bucket that can be used as backend
+Terraform module which creates a remote state container that can be used as backend
 for Terraform Azure provider.
 
 These features are supported:
 
-- region-specific bucket
-- custom bucket naming
+- location-specific container
+- custom container naming
 - specify versioning policy
-- specify whether to force destroy or not
-- apply custom bucket tags
-- block public access to bucket
+- apply custom container tags
+- block public access to container
 
 ## Usage
 
@@ -20,8 +19,8 @@ module "azurerm-remote-state" {
   # We recommend pinning every module to a specific version
   # version = "x.x.x"
 
-  region      = var.region
-  bucket_name = var.bucket_name
+  location      = var.location
+  container_name = var.container_name
 
   tags = {
       env = "dev"
@@ -30,8 +29,9 @@ module "azurerm-remote-state" {
 }
 ```
 
-Use this with an Azure provider and this will spin up a bucket you can use as a
-remote state Terraform backend.
+Use this with an Azure provider and this will spin up a container you can use as a
+remote state Terraform backend. (It also spins up a resource group and a storage
+account that live to encapsulate the storage container.)
 
 ## Help
 
